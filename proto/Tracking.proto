@@ -1,0 +1,19 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_outer_classname = "TackingProto";
+import public "Common.proto";
+package avtm.center.proto;
+
+service TrackingService {
+  rpc receive(stream TrackingRequest) returns (stream Empty);
+}
+
+message TrackingRequest {
+  Point point = 1;
+  double ground_speed = 2;
+  double true_air_speed = 3;
+  double instrument_air_speed = 4;
+  string mission_uuid = 5;
+  Timestamp time = 6;
+  string flight_request_uuid = 7;
+}

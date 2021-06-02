@@ -1,0 +1,15 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_outer_classname = "TransmitterTackingProto";
+import public "Common.proto";
+package avtm.center.proto;
+
+service TransmitterTrackingService {
+  rpc receive(stream TransmitterTrackingRequest) returns (stream Empty);
+}
+
+message TransmitterTrackingRequest {
+    Point point = 1;
+    Timestamp time = 2;
+    string serial_number = 3;
+}

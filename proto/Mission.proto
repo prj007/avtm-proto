@@ -1,0 +1,24 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_outer_classname = "MissionProto";
+import public "Tracking.proto";
+package avtm.center.proto;
+
+service MissionService {
+  rpc update(MissionUpdateStatusRequest) returns (Empty);
+}
+
+message MissionUpdateStatusRequest {
+  string missionUuid = 1;
+  MissionStatus status = 2;
+  Point point = 3;
+  Timestamp time = 4;
+}
+
+enum MissionStatus {
+  CREATED = 0;
+  IN_MOVE = 1;
+  LANDED = 2;
+  OUT = 3;
+  IN = 4;
+}

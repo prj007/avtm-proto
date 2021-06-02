@@ -1,0 +1,16 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package avtm.center.proto;
+
+message Point {
+  double latitude = 1;
+  double longitude = 2;
+  double altitude = 3;
+}
+
+message Timestamp {
+  int64 seconds = 1;
+  int32 nanos = 2;
+}
+
+message Empty {}
