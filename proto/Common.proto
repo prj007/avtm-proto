@@ -3,8 +3,8 @@ option java_multiple_files = true;
 package avtm.center.proto;
 
 message Point {
-  double latitude = 1;
-  double longitude = 2;
+  double longitude = 1;
+  double latitude = 2;
   double altitude = 3;
 }
 
