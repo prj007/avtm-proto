@@ -1,0 +1,18 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_outer_classname = "MissionHandShakeProto";
+import public "Common.proto";
+package avtm.center.proto;
+
+service MissionHandShakeService {
+  rpc validateMissionStatus(MissionHandShakeRequest) returns (MissionHandShakeResponse);
+}
+
+message MissionHandShakeRequest {
+  string missionUuid = 1;
+}
+
+message MissionHandShakeResponse {
+  string missionValidationUuid = 1;
+  bool isValid = 2;
+}
