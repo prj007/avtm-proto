@@ -1,0 +1,23 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_outer_classname = "TrackingV2";
+import public "Common.proto";
+import public "FlightEvent.proto";
+
+package avtm.center.proto;
+
+service TrackingServiceV2 {
+  rpc sendTelemetryV2(stream TrackingRequestV2) returns (stream Empty);
+}
+
+message TrackingRequestV2 {
+  Point point = 1;
+  double groundSpeed = 2;
+  double trueAirSpeed = 3;
+  double instrumentAirSpeed = 4;
+  string missionUuid = 5;
+  Timestamp time = 6;
+  AltitudeType altitudeType = 7;
+  bool isLanded = 8;
+  double verticalSpeed = 9;
+}

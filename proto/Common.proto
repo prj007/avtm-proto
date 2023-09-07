@@ -13,4 +13,9 @@ message Timestamp {
   int32 nanos = 2;
 }
 
+enum AltitudeType{
+  AMSL = 0;
+  AGL = 1;
+}
+
 message Empty {}
