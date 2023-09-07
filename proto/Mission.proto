@@ -1,6 +1,6 @@
 syntax = "proto3";
 option java_multiple_files = true;
-option java_outer_classname = "MissionProto";
+option java_outer_classname = "Mission";
 import public "Common.proto";
 package avtm.center.proto;
 
@@ -32,20 +32,19 @@ message MissionUpdateStatusRequest {
   MissionStatus status = 2;
   Point point = 3;
   Timestamp time = 4;
+  string flightRequestUuid = 5;
 }
 
 message MissionUpdateStatusAndCoordinatesRequest {
   string missionUuid = 1;
   MissionStatus status = 2;
   repeated Point coordinates = 3;
+  string flightRequestUuid = 4;
+  Timestamp time = 5;
 }
 
 enum MissionStatus {
   CREATED = 0;
   IN_MOVE = 1;
   LANDED = 2;
-  OUT = 3;
-  IN = 4;
-  DISCONNECT = 5;
-  RECONNECT = 6;
 }

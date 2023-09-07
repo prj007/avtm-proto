@@ -1,0 +1,41 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_outer_classname = "TrackingNRID";
+import public "Common.proto";
+import public "FlightEvent.proto";
+
+package avtm.center.proto;
+
+service NRIDTrackingService {
+  rpc receiveNRID(stream NRIDRequest) returns (stream Empty);
+}
+
+message NRIDRequest {
+  string ID = 1;
+  int32 IDT = 2;
+  int32 Type = 3;
+  string USSID = 4;
+  int64 TS = 5;
+  int32 TSA = 6;
+  double Lat = 7;
+  double Lon = 8;
+  double Alt = 9;
+  int32 GVA = 10;
+  int32 HA = 11;
+  int32 SA = 12;
+  double TD = 13;
+  double GS = 14;
+  double VS = 15;
+  string missionUuid = 16;
+  string flightRequestUuid = 17;
+  bool isLanded = 18;
+  FlightEventType flightEventType = 19;
+}
+enum Type{
+
+  UNKNOWN = 0;
+  PLANE = 1;
+  HELICOPTER_MULTICOPTER = 2;
+  ANOTHER = 3;
+  //добавятся еще
+}

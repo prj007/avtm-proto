@@ -1,0 +1,24 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_outer_classname = "FlightEvent";
+import public "Common.proto";
+
+package avtm.center.proto;
+
+service FlightEventGrpcService {
+  rpc receive(FlightEventRequest) returns (Empty);
+}
+
+message FlightEventRequest {
+  string missionUuid = 1;
+  Timestamp time = 2;
+  Point point = 3;
+  FlightEventType event = 4;
+}
+
+enum FlightEventType {
+  OUT = 0;
+  IN = 1;
+  DISCONNECT = 2;
+  RECONNECT = 3;
+}

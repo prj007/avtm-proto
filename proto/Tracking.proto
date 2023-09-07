@@ -1,11 +1,13 @@
 syntax = "proto3";
 option java_multiple_files = true;
-option java_outer_classname = "TackingProto";
+option java_outer_classname = "Tracking";
 import public "Common.proto";
+import public "FlightEvent.proto";
+
 package avtm.center.proto;
 
 service TrackingService {
-  rpc receive(stream TrackingRequest) returns (stream Empty);
+  rpc sendTelemetry(stream TrackingRequest) returns (stream Empty);
 }
 
 message TrackingRequest {
@@ -16,4 +18,9 @@ message TrackingRequest {
   string mission_uuid = 5;
   Timestamp time = 6;
   string flight_request_uuid = 7;
+  bool valid = 8;
+  FlightEventType flightEventType = 9;
+  AltitudeType altitudeType = 10;
+  bool isLanded = 11;
+  double verticalSpeed = 12;
 }

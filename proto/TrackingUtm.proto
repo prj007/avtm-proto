@@ -1,0 +1,11 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_outer_classname = "TrackingUtm";
+import public "Common.proto";
+import public "Tracking.proto";
+
+package avtm.center.proto;
+
+service TrackingUtmService {
+  rpc receive(stream TrackingRequest) returns (stream Empty);
+}
