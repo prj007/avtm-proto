@@ -20,4 +20,8 @@ message TrackingRequestV2 {
   AltitudeType altitudeType = 7;
   bool isLanded = 8;
   double verticalSpeed = 9;
+  int32 batteryRemaining = 10;
+  uint32 satellitesVisible = 11;
+  uint32 cog = 12;
+  double flightDistance = 13;
 }
