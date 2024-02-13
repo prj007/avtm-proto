@@ -1,0 +1,15 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_outer_classname = "UavTracking";
+import public "Common.proto";
+package avtm.center.proto;
+
+service UavTrackingService {
+  rpc sendTelemetry(stream UavTrackingRequest) returns (stream Empty);
+}
+
+message UavTrackingRequest {
+  Point point = 1;
+  Timestamp time = 2;
+  string uavUuid = 3;
+}
